@@ -81,7 +81,7 @@ function inputEventHandler(evt) {
       resetTextareaSize.call(this);
       this.change('input', v);
     } else {
-      evt.target.value = cell.text;
+      evt.target.value = cell.text || '';
     }
   } else {
     this.inputText = v;
@@ -249,6 +249,8 @@ export default class Editor {
   }
 
   setCell(cell, validator) {
+    if (cell && cell.editable === false) return;
+
     // console.log('::', validator);
     const { el, datepicker, suggest } = this;
     el.show();
