@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    parameters {
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
+      }
+
+    tools {
+        nodejs "nodejs" 
+    }
+
+    stages {
+        stage('SCM'){
+            steps {
+                git branch: "${params.BRANCH}", url: 'https://github.com/DiegoRivas12/IS_II_Proyecto_Final.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                bat 'npm install --openssl-legacy-provider'
+               // bat 'npm run dev'
+            }
+        }
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv("sonarqube") {//sonarqube server http://localhost:8080/configure
+                    bat '''
+                    sonar-scanner \
+                    -D sonar.projectKey=PROYECTOII \
+                    -D sonar.projectName=PROYECTOII \
+                    -D sonar.sources=./src \
+                    '''
+                }
+
+            }
+        }
+
+    }
+}
