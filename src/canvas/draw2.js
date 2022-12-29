@@ -88,5 +88,5 @@ class Draw {
 
 export default {};
 export {
-  Draw,
+  Draw,  
 };
