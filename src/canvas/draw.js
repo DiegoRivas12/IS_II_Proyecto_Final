@@ -4,7 +4,7 @@ function dpr() {
 }
 
 function thinLineWidth() {
-  return dpr() - 0.5;
+  return dpr() - 0.5; 
 }
 
 function npx(px) {

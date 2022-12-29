@@ -332,15 +332,7 @@ function cut() {
 function paste(what, evt) {
   const { data } = this;
   if (data.settings.mode === 'read') return;
-  if (data.clipboard.isClear()) {
-    const resetSheet = () => sheetReset.call(this);
-    const eventTrigger = (rows) => {
-      this.trigger('pasted-clipboard', rows);
-    };
-    // pastFromSystemClipboard is async operation, need to tell it how to reset sheet and trigger event after it finishes
-    // pasting content from system clipboard
-    data.pasteFromSystemClipboard(resetSheet, eventTrigger);
-  } else if (data.paste(what, msg => xtoast('Tip', msg))) {
+  if (data.paste(what, msg => xtoast('Tip', msg))) {
     sheetReset.call(this);
   } else if (evt) {
     const cdata = evt.clipboardData.getData('text/plain');
@@ -477,15 +469,7 @@ function horizontalScrollbarMove(distance) {
 function rowResizerFinished(cRect, distance) {
   const { ri } = cRect;
   const { table, selector, data } = this;
-  const { sri, eri } = selector.range;
-  if (ri >= sri && ri <= eri) {
-    for (let row = sri; row <= eri; row += 1) {
-      data.rows.setHeight(row, distance);
-    }
-  } else {
-    data.rows.setHeight(ri, distance);
-  }
-
+  data.rows.setHeight(ri, distance);
   table.render();
   selector.resetAreaOffset();
   verticalScrollbarSet.call(this);
@@ -495,15 +479,8 @@ function rowResizerFinished(cRect, distance) {
 function colResizerFinished(cRect, distance) {
   const { ci } = cRect;
   const { table, selector, data } = this;
-  const { sci, eci } = selector.range;
-  if (ci >= sci && ci <= eci) {
-    for (let col = sci; col <= eci; col += 1) {
-      data.cols.setWidth(col, distance);
-    }
-  } else {
-    data.cols.setWidth(ci, distance);
-  }
-
+  data.cols.setWidth(ci, distance);
+  // console.log('data:', data);
   table.render();
   selector.resetAreaOffset();
   horizontalScrollbarSet.call(this);
