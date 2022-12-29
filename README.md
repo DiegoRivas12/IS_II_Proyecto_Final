@@ -85,7 +85,7 @@ npm run build
 
 ```
 
-<img src="/readme_img/build.png" width="80%">
+<img src="/Capturas/build.png" width="80%">
 
 
 ## Integración del SonarQube en Jenkins
