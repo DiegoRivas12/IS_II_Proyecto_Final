@@ -63,3 +63,6 @@ npm install eslint --save-dev
 ## Integración del SonarQube en Jenkins
 Primero instalamos SonarQube for Jenkins desde el Gestor del plugin.
 <img src="Capturas/sonarQube_configuracion.png" width="50%">
+
+Despues generamos un token desde SonarQube para jenkins.
+<img src="Capturas/token_sonar_jenkins.png" width="50%">
