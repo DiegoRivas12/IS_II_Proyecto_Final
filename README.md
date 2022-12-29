@@ -102,7 +102,9 @@ Despues agregamos el token para SonarQube Servers.
 Configuramos.                                          
 <img src="Capturas/captura_nodejs.png" width="50%">
 
-# Integración del Jmeter en Jenkins
+# Integración de Jmeter en Jenkins
+Crear un archivo jmx con las pruebas y guardarlo en jmeter/test_is_final.jmx.
+Y finalmente ejecutarlo desde jenkins.
 
 ## Code Smells
 ## Expected a `for-of` loop instead of a `for` loop with this simple iteration.
