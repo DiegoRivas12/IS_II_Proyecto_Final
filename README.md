@@ -69,3 +69,73 @@ npm install --save-dev babel-loader babel-core babel-preset-env
 npm install --save-dev babel-register
 # npm install --save-dev babel-plugin-transform-runtime
 # npm install --save babel-runtime
+```
+
+## Code Smells
+## Expected a `for-of` loop instead of a `for` loop with this simple iteration.
+Si tiene un iterable, como una matriz, conjunto o lista, su mejor opción para recorrer sus valores es la sintaxis for que itere entre esas variables. Usando un contador obtendrá mismo comportamiento, pero el código no será tan limpio o claro.
+
+<p align="center">
+    <img src="/readme_img/smell1.png" width="50%">
+</p>
+
+### Refactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.
+La complejidad cognitiva es una medida de qué tan difícil es comprender el flujo de control de una función. Las funciones con alta complejidad cognitiva serán difíciles de mantener.
+<p align="center">
+    <img src="/readme_img/smell2.png" width="50%">
+</p>
+<p align="center">
+    <img src="/readme_img/smell2_2.png" width="50%">
+</p>
+
+## Refactoring code smells
+### Expected a `for-of` loop instead of a `for` loop with this simple iteration.
+
+<p align="center">
+    <img src="/readme_img/factorin1.png" width="50%">
+</p>
+
+
+### COMPOSING METHODS:  5. Introduce Explaining Variable
+before
+<p align="center">
+    <img src="/imageRefactorization/event_before.png"width="50%">
+</p>
+after
+<p align="center">
+    <img src="/imageRefactorization/event_After.png" width="50%">
+</p>
+
+### FUNCTIONS SHOULD NOT BE EMPTY
+Hay varias razones para que una función no tenga un cuerpo de función:
+- Es una omisión involuntaria y debe corregirse para evitar un comportamiento inesperado en la producción.
+- Aún no se admite, o nunca lo será. En este caso, debería lanzarse una excepción en los idiomas donde ese mecanismo está disponible.
+- El método es una anulación intencionalmente en blanco. En este caso, un comentario anidado debería explicar el motivo de la anulación en blanco.
+
+Solucion de compilacion
+<p align="center">
+    <img src="/readme_img/compilation_S.png">
+</p>
+Ejemplos:
+
+- Before arrow function
+<p align="center">
+    <img src="/readme_img/itemclick.png">
+</p>
+
+- After arrow function
+<p align="center">
+    <img src="/readme_img/itemclick_S.png">
+</p>
+
+- Before method
+<p align="center">
+    <img src="/readme_img/settitle.png">
+</p>
+
+- After method
+<p align="center">
+    <img src="/readme_img/settitle_S.png">
+</p>
+
+
