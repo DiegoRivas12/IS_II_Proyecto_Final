@@ -99,5 +99,5 @@ Despues agregamos el token para SonarQube Servers.
 <img src="Capturas/sonar_server.png" width="50%">
 
 ## Instalar NodeJs
-Configuramos.
+Configuramos.                                          
 <img src="Capturas/captura_nodejs.png" width="50%">
