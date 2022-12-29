@@ -95,7 +95,7 @@ Primero instalamos SonarQube for Jenkins desde el Gestor del plugin.
 Despues generamos un token desde SonarQube para jenkins.
 <img src="Capturas/token_sonar_jenkins.png" width="50%"><br>
 
-Despues agregamos el token para SonarQube Servers.
+Despues agregamos el token para SonarQube Servers.           
 <img src="Capturas/sonar_server.png" width="50%">
 
 ## Instalar NodeJs
