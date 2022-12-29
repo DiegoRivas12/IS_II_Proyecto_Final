@@ -28,6 +28,7 @@ Integrantes:
 
 <img src="report-screenshots/pipeline-graph-report.png" width="50%">
 
+
 ### Reporte Sonar Scanner
 
 <img src="report-screenshots/sonnar-scanner-report.png" width="50%">
@@ -58,7 +59,7 @@ npm install less-loader --save-dev
 
 npm install eslint --save-dev
 ./node_modules/.bin/eslint --init # airbnb
-
+```
 ## Integración del SonarQube en Jenkins
 Primero instalamos SonarQube for Jenkins desde el Gestor del plugin.
 <img src="Capturas/pipesonarQube_configuracion.png" width="50%">
