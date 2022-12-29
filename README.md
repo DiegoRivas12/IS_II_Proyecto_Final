@@ -60,9 +60,44 @@ npm install less-loader --save-dev
 npm install eslint --save-dev
 ./node_modules/.bin/eslint --init # airbnb
 ```
+## Configuración
+En el archivo **package.json** añadimos el *script* correspondiente para poder ejecutar la construccion automatica .
+- **dev:** Para el modo de desarrollo
+- **build:** Para el modo de produccion
+
+```
+"scripts": {
+	"dev": "webpack-dev-server --open --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js",
+}
+```
+## Ejecución
+Para la construcción automática  del modo de desarrollo usamos el comando :
+
+```
+npm run dev
+
+```
+Para la construcción automática  del modo de produccion usamos el comando :
+
+```
+npm run build
+
+```
+<p align="center">
+    <img src="/readme_img/build.png" width="80%">
+</p>
+
 ## Integración del SonarQube en Jenkins
 Primero instalamos SonarQube for Jenkins desde el Gestor del plugin.
 <img src="Capturas/sonarQube_configuracion.png" width="50%">
 
 Despues generamos un token desde SonarQube para jenkins.
 <img src="Capturas/token_sonar_jenkins.png" width="50%">
+
+Despues agregamos el token para SonarQube Servers.
+<img src="Capturas/sonar_server.png" width="50%">
+
+## Instalar NodeJs
+Configuramos.
+<img src="Capturas/captura_nodejs.png" width="50%">
