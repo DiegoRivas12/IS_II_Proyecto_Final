@@ -84,9 +84,9 @@ Para la construcción automática  del modo de produccion usamos el comando :
 npm run build
 
 ```
-<p align="center">
-    <img src="/readme_img/build.png" width="80%">
-</p>
+
+<img src="/readme_img/build.png" width="80%">
+
 
 ## Integración del SonarQube en Jenkins
 Primero instalamos SonarQube for Jenkins desde el Gestor del plugin.
