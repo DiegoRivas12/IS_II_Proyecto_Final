@@ -69,3 +69,43 @@ npm install --save-dev babel-loader babel-core babel-preset-env
 npm install --save-dev babel-register
 # npm install --save-dev babel-plugin-transform-runtime
 # npm install --save babel-runtime
+
+## Configuración
+En el archivo **package.json** añadimos el *script* correspondiente para poder ejecutar la construccion automatica .
+- **dev:** Para el modo de desarrollo
+- **build:** Para el modo de produccion
+
+```
+"scripts": {
+	"dev": "webpack-dev-server --open --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js",
+}
+```
+## Ejecución
+Para la construcción automática  del modo de desarrollo usamos el comando :
+
+```
+npm run dev
+
+```
+Para la construcción automática  del modo de produccion usamos el comando :
+
+```
+npm run build
+
+```
+ <p align="center">
+    <img src="/readme_img/build.jpeg" width="80%">
+</p>
+
+# Reporte Sonar Scanner
+
+#### Requisitos
+:heavy_check_mark: Jenkins Plugins
+* [SonarQube Scanner](https://plugins.jenkins.io/sonar/)
+
+:heavy_check_mark: SonarQube
+
+<p align="center">
+<img src="report-screenshots/sonnar-scanner-report.png" width="75%">
+</p>
