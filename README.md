@@ -26,7 +26,7 @@ Integrantes:
 
 ### Pipeline 
 
-<img src="report-screenshots/pipeline-graph-report.png" width="50%">
+<img src="report-screenshots/pipeline-graph-report-uno.png" width="50%">
 
 
 ### Reporte Sonar Scanner
