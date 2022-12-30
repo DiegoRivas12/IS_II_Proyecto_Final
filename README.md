@@ -122,7 +122,15 @@ La complejidad cognitiva es una medida de qué tan difícil es comprender el flu
 <p align="center">
     <img src="/readme_img/smell2_2.png" width="50%">
 </p>
+before
+<p align="center">
+    <img src="/readme_img/smell3.png" width="50%">
+</p>
 
+after
+<p align="center">
+    <img src="/readme_img/smell3_des.png" width="50%">
+</p>
 ## Refactoring code smells
 ### Expected a `for-of` loop instead of a `for` loop with this simple iteration.
 
