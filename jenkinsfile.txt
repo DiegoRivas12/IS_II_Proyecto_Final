@@ -34,6 +34,12 @@ pipeline {
 
             }
         }
+        stage('Pruebas de Performance: Jmeter and Taurus Tool') {
+            steps {
+                //bat 'pip install bzt'
+                bat '''C:\\Users\\DIEGO\\Desktop\\apache-jmeter-5.5\\apache-jmeter-5.5\\bin\\jmeter -Jjmeter.save.saveservice.output_format=xml -n -t jmeter/test_is_final.jmx || exit 0'''
+            }
+        }
 
     }
 }
