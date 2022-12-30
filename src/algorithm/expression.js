@@ -12,11 +12,10 @@ const infix2suffix = (src) => {
         stack.push(c1);
         c1 = operatorStack.pop();
       }
-    } else if (operatorStack.length > 0 && (c === '+' || c === '-')) {
-        const last = operatorStack[operatorStack.length - 1];
-        if (last === '*' || last === '/') stack.push(operatorStack.pop());
-      operatorStack.push(c);
+    } else if (operatorStack.length > 0 && (c === '+' || c === '-') && operatorStack[operatorStack.length - 1] === '*' || operatorStack[operatorStack.length - 1] === '/'){
+      stack.push(operatorStack.pop());
     }
+    operatorStack.push(c);
   }
   while (operatorStack.length > 0) {
     stack.push(operatorStack.pop());
