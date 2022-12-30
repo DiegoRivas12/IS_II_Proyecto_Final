@@ -30,7 +30,6 @@ const infixExprToSuffixExpr = (src) => {
       } else if (c === '-' && /[+\-*/,(]/.test(oldc)) {
         subStrs.push(c);
       } else {
-        // console.log('subStrs:', subStrs.join(''), stack);
         if (c !== '(' && subStrs.length > 0) {
           stack.push(subStrs.join(''));
         }
