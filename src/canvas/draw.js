@@ -272,7 +272,7 @@ class Draw {
     const { ctx } = this;
     ctx.lineWidth = thinLineWidth;
     ctx.strokeStyle = color;
-    // console.log('style:', style);
+  
     if (style === 'medium') {
       ctx.lineWidth = npx(2) - 0.5;
     } else if (style === 'thick') {
@@ -311,7 +311,7 @@ class Draw {
     } = box;
     if (borderTop) {
       this.border(...borderTop);
-      // console.log('box.topxys:', box.topxys());
+      
       this.line(...box.topxys());
     }
     if (borderRight) {
