@@ -139,7 +139,6 @@ class Draw {
   }
 
   resize(width, height) {
-    // console.log('dpr:', dpr);
     this.el.style.width = `${width}px`;
     this.el.style.height = `${height}px`;
     this.el.width = npx(width);
