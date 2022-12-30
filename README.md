@@ -131,6 +131,7 @@ after
 <p align="center">
     <img src="/readme_img/smell3_des.png" width="50%">
 </p>
+
 ## Refactoring code smells
 ### Expected a `for-of` loop instead of a `for` loop with this simple iteration.
 
