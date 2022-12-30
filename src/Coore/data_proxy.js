@@ -137,7 +137,6 @@ function copyPaste(srcCellRange, dstCellRange, what, autofill = false) {
   }
   rows.copyPaste(srcCellRange, dstCellRange, what, autofill, (ri, ci, cell) => {
     if (cell && cell.merge) {
-      // console.log('cell:', ri, ci, cell);
       const [rn, cn] = cell.merge;
       if (rn <= 0 && cn <= 0) return;
       merges.add(new CellRange(ri, ci, ri + rn, ci + cn));
@@ -187,9 +186,6 @@ function setStyleBorders({ mode, style, color }) {
       if (cell && cell.style !== undefined) {
         const ns = helper.cloneDeep(styles[cell.style]);
         delete ns.border;
-        // ['bottom', 'top', 'left', 'right'].forEach((prop) => {
-        //   if (ns[prop]) delete ns[prop];
-        // });
         cell.style = this.addStyle(ns);
       }
     });
@@ -201,11 +197,10 @@ function setStyleBorders({ mode, style, color }) {
         // jump merges -- start
         const mergeIndexes = [];
         for (let ii = 0; ii < merges.length; ii += 1) {
-          const [mri, mci, rn, cn] = merges[ii];
+          
           if (ri === mri + rn + 1) mergeIndexes.push(ii);
           if (mri <= ri && ri <= mri + rn) {
             if (ci === mci) {
-              ci += cn + 1;
               break;
             }
           }
@@ -245,25 +240,24 @@ function setStyleBorders({ mode, style, color }) {
         if (Object.keys(bss).length > 0) {
           setStyleBorder.call(this, ri, ci, bss);
         }
-        ci += cn;
+        
       }
     }
   } else if (mode === 'top' || mode === 'bottom') {
     for (let ci = sci; ci <= eci; ci += 1) {
       if (mode === 'top') {
         setStyleBorder.call(this, sri, ci, { top: [style, color] });
-        ci += rows.getCellMerge(sri, ci)[1];
       }
       if (mode === 'bottom') {
         setStyleBorder.call(this, eri, ci, { bottom: [style, color] });
-        ci += rows.getCellMerge(eri, ci)[1];
+        
       }
     }
   } else if (mode === 'left' || mode === 'right') {
     for (let ri = sri; ri <= eri; ri += 1) {
       if (mode === 'left') {
         setStyleBorder.call(this, ri, sci, { left: [style, color] });
-        ri += rows.getCellMerge(ri, sci)[0];
+        
       }
       if (mode === 'right') {
         setStyleBorder.call(this, ri, eci, { right: [style, color] });
@@ -294,7 +288,6 @@ function getCellRowByY(y, scrollOffsety) {
     }
   }
   top -= height;
-  // console.log('ri:', ri, ', top:', top, ', height:', height);
 
   if (top <= 0) {
     return { ri: -1, top: 0, height };
@@ -956,21 +949,19 @@ export default class DataProxy {
     let height = rows.getHeight(ri);
     if (cell !== null) {
       if (cell.merge) {
-        const [rn, cn] = cell.merge;
-        // console.log('cell.merge:', cell.merge);
-        if (rn > 0) {
-          for (let i = 1; i <= rn; i += 1) {
+        
+        if (rn > 0 && cn > 0) {
+          let i=1;
+          while(i <= rn && i <= cn){
             height += rows.getHeight(ri + i);
-          }
-        }
-        if (cn > 0) {
-          for (let i = 1; i <= cn; i += 1) {
             width += cols.getWidth(ci + i);
+            i += 1
           }
         }
+        
       }
     }
-    // console.log('data:', this.d);
+    
     return {
       left, top, width, height, cell,
     };
@@ -1116,7 +1107,6 @@ export default class DataProxy {
       eci = j;
       if (x > this.viewWidth()) break;
     }
-    // console.log(ri, ci, eri, eci, x, y);
     return new CellRange(ri, ci, eri, eci, x, y);
   }
 
@@ -1159,7 +1149,7 @@ export default class DataProxy {
         offset += 1;
       }
     }
-    // console.log('min:', min, ', max:', max, ', scroll:', scroll);
+
     for (let i = min + offset; i <= max + offset; i += 1) {
       if (frset.has(i)) {
         offset += 1;
@@ -1193,7 +1183,7 @@ export default class DataProxy {
 
   addStyle(nstyle) {
     const { styles } = this;
-    // console.log('old.styles:', styles, nstyle);
+    
     for (let i = 0; i < styles.length; i += 1) {
       const style = styles[i];
       if (helper.equals(style, nstyle)) return i;
