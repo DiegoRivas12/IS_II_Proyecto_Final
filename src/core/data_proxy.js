@@ -111,7 +111,9 @@ const bottombarHeight = 41;
 
 // src: cellRange
 // dst: cellRange
-function canPaste(src, dst, error = () => {}) {
+function canPaste(src, dst, error = () => {
+  // Función vacía
+}) {
   const { merges } = this;
   const cellRange = dst.clone();
   const [srn, scn] = src.size();

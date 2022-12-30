@@ -110,7 +110,9 @@ class Rows {
   }
 
   // what: all | format | text
-  copyPaste(srcCellRange, dstCellRange, what, autofill = false, cb = () => {}) {
+  copyPaste(srcCellRange, dstCellRange, what, autofill = false, cb = () => {
+    //Función Vacía
+  }) {
     const {
       sri, sci, eri, eci,
     } = srcCellRange;
